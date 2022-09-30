@@ -1,0 +1,26 @@
+﻿@page "/app/leaves"
+<MudText Typo="Typo.h3">Leave List</MudText>
+<div class="d-flex justify-end">
+    <MudTooltip Text="Create new leave">
+        <MudIconButton Href="/app/leaves/create" Icon="@Icons.Material.Filled.Add" Variant="Variant.Filled" Color="Color.Primary"></MudIconButton>
+    </MudTooltip>
+
+</div>
+<MudTable Items="Leaves" Loading="@_loading">
+    <HeaderContent>
+        <MudTh>Name</MudTh>
+        <MudTh>Last Name</MudTh>
+        <MudTh>Type of Leave</MudTh>
+        <MudTh>Leave Start</MudTh>
+        <MudTh>Leave End</MudTh>
+        <MudTh>Reason</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Name">@context.Employee.Name</MudTd>
+        <MudTd DataLabel="LastName">@context.Employee.LastName</MudTd>
+        <MudTd DataLabel="TypeOfLeave">@context.TypeOfLeave</MudTd>
+        <MudTd DataLabel="LeaveStart">@context.LeaveStart.ToShortDateString()</MudTd>
+        <MudTd DataLabel="LeaveEnd">@context.LeaveEnd.ToShortDateString()</MudTd>
+        <MudTd DataLabel="Reason">@context.Reason</MudTd>
+    </RowTemplate>
+</MudTable>

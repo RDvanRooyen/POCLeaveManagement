@@ -1,1 +1,1 @@
-"# {POCLeaveManagementSystem}" 
+POC Leave Management System

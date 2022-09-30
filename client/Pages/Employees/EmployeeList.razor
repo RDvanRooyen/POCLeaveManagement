@@ -1,0 +1,24 @@
+@page "/app/employees"
+<MudText Typo="Typo.h3">Employee List</MudText>
+<div class="d-flex justify-end">
+    <MudTooltip Text="Create new employee">
+        <MudIconButton Href="/app/employees/create" Icon="@Icons.Material.Filled.Add" Variant="Variant.Filled" Color="Color.Primary"></MudIconButton>
+    </MudTooltip>
+
+</div>
+<MudTable Items="Employees" Loading="@_loading">
+    <HeaderContent>
+        <MudTh>Name</MudTh>
+        <MudTh>Last Name</MudTh>
+        <MudTh>Annual Leave Remaining</MudTh>
+        <MudTh>Family Leave Remaining</MudTh>
+        <MudTh>Sick Leave Remaining</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="LastName">@context.LastName</MudTd>
+        <MudTd DataLabel="LastName">@context.AnnualLeaveRemaining</MudTd>
+        <MudTd DataLabel="LastName">@context.FamRespLeaveRemaining</MudTd>
+        <MudTd DataLabel="LastName">@context.SickLeaveRemaining</MudTd>
+    </RowTemplate>
+</MudTable>

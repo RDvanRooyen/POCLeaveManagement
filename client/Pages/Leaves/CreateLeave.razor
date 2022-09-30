@@ -1,0 +1,29 @@
+﻿@page "/app/leaves/create"
+@using global::Shared.Model
+<MudText Typo="Typo.h3">Add leave</MudText>
+<MudGrid>
+    <MudItem  xs="12" sm="6" md="4">
+        <MudAutocomplete T="EmployeeModel" ToStringFunc="AutocompleteDisplayFunction" Label="Select an employee" ValueChanged="AutocompleteValueChanged" SearchFunc="async (input) => await AutocompleteEmployees(input)"
+                         ResetValueOnEmptyText="true"/>
+    </MudItem>
+    <MudItem  xs="12" sm="6" md="4">
+        <MudSelect T="string" Label="Type Of Leave" AnchorOrigin="Origin.BottomCenter" @bind-Value="Request.TypeOfLeave">
+            <MudSelectItem Value="@("Annual Leave")"/>
+            <MudSelectItem Value="@("Sick Leave")"/>
+            <MudSelectItem Value="@("Family Responsibility Leave")"/>
+        </MudSelect>
+    </MudItem>
+    <MudItem  xs="12" sm="6" md="4">
+        <MudDatePicker @bind-Date="Request.LeaveStart" Label="Leave Start"></MudDatePicker>
+    </MudItem>
+    <MudItem  xs="12" sm="6" md="4">
+        <MudDatePicker @bind-Date="Request.LeaveEnd" Label="Leave End"></MudDatePicker>
+    </MudItem>
+    <MudItem  xs="12" sm="6" md="4">
+        <MudTextField T="string" @bind-Value="Request.Reason" Label="Reason"></MudTextField>
+    </MudItem>
+
+</MudGrid>
+<div class="d-flex justify-end">
+    <MudButton Variant="Variant.Filled" OnClick="Save">Submit</MudButton>
+</div>
